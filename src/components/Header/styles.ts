@@ -26,10 +26,19 @@ export const useStyles = makeStyles((theme: Theme) =>
       width: `calc(100% - ${theme.sidebar.widthCollapsed}px)`,
     },
     header: {
+      // background: '#fff',
+      // color: '#7b7b7b',
       boxShadow: 'none',
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
+    toolbar: {},
+    menuButton: {},
+    actions: {
+      marginLeft: 'auto',
+      alignItems: 'center',
+      display: 'flex',
+    },
+    notificationsButton: {
+      marginRight: 23,
     },
     title: {
       flexGrow: 1,

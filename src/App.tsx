@@ -4,6 +4,7 @@ import { Theme } from './config/theme';
 import Routes from './Routes';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import Main from './components/Main';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,6 +23,7 @@ const App: React.FC = () => {
     <div className={classes.root}>
       <Header />
       <Sidebar />
+      <Main />
       <Routes />
     </div>
   );

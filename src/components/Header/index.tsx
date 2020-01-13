@@ -41,7 +41,7 @@ const Header: React.FC<Props> = ({ drawer, toggleDrawer }) => {
         position="absolute"
         className={classes.header}
         >
-        <Toolbar> 
+        <Toolbar className={classes.toolbar}> 
           <IconButton
             aria-label="menu"
             color="inherit"

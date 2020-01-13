@@ -21,7 +21,7 @@ interface StateProps {
   drawer: DrawerState;
 }
 
-const SidebarNav: React.FC<StateProps> = ({ drawer }) => {
+const SidebarNav: React.FC<StateProps> = ({ drawer }: StateProps) => {
 
   const classes = useStyles()
 
@@ -69,7 +69,7 @@ const SidebarNav: React.FC<StateProps> = ({ drawer }) => {
   ];
 
   return (
-    <div>
+    <div className="sidebarnav">
       <List className={classes.navList} disablePadding>
         {!drawer.opened && (
           <ListSubheader disableSticky={true} className={classes.navListHeader}>
