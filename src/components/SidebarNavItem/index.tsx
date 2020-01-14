@@ -1,18 +1,16 @@
-import React, { forwardRef, HTMLAttributes } from 'react'
-import clsx from 'clsx'
-
-import { NavLink, NavLinkProps } from 'react-router-dom'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import Tooltip from '@material-ui/core/Tooltip'
-import Collapse from '@material-ui/core/Collapse'
-
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import IconExpandLess from '@material-ui/icons/ExpandLess'
-import IconExpandMore from '@material-ui/icons/ExpandMore'
-import IconSpacer from '@material-ui/icons/FiberManualRecord'
+import React, { forwardRef, HTMLAttributes } from 'react';
+import clsx from 'clsx';
+import { NavLink, NavLinkProps } from 'react-router-dom';
+import Collapse from '@material-ui/core/Collapse';
+import IconExpandLess from '@material-ui/icons/ExpandLess';
+import IconExpandMore from '@material-ui/icons/ExpandMore';
+import IconSpacer from '@material-ui/icons/FiberManualRecord';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Tooltip from '@material-ui/core/Tooltip';
+import { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 import { useStyles } from './styles';
 
@@ -199,4 +197,4 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = (props: SidebarNavItemProp
   )
 }
 
-export default SidebarNavItem
+export default SidebarNavItem;

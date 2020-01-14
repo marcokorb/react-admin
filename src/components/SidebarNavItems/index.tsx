@@ -2,10 +2,10 @@ import React from 'react';
 
 import SidebarNavItem, { SidebarNavItemProps } from '../SidebarNavItem';
 
-export interface SidebarNavItemsProps {
-  items: SidebarNavItemProps[]
-  isNested?: boolean
-  isCollapsed?: boolean
+export type SidebarNavItemsProps = {
+  items: SidebarNavItemProps[];
+  isNested?: boolean;
+  isCollapsed?: boolean;
 }
 
 const SidebarNavItems: React.FC<SidebarNavItemsProps> = (props: SidebarNavItemsProps) => {

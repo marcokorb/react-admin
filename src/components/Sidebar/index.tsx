@@ -1,58 +1,50 @@
 import React from 'react';
-import clsx from 'clsx';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import Drawer from '@material-ui/core/Drawer';
+import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
 
-import { ApplicationState } from '../../store';
-import * as DrawerActions from '../../store/ducks/drawer/actions';
-import { DrawerState } from '../../store/ducks/drawer/types';
-import SidebarContent from '../SidebarContent';
+import Logo from 'src/common/Logo';
+import { ApplicationState } from 'src/store';
+import { DrawerState } from 'src/store/ducks/drawer/types';
+
+import SidebarNav from '../SidebarNav';
 
 import { useStyles } from './styles';
 
-interface StateProps {
+export type StateProps = {
   drawer: DrawerState;
 }
 
-interface DispatchProps {
-  closeDrawer(): void;
-}
+const Sidebar: React.FC<StateProps> = (props: StateProps) => {
 
-type Props = StateProps & DispatchProps;
-
-const Sidebar: React.FC<Props> = ({ drawer, closeDrawer }) => {
-
-  const classes = useStyles();
+  const classes = useStyles(props);
 
   return (
-      <div
-        className={clsx(
-          classes.sidebarContainer,
-          classes.sidebarContainerDesktop,
-          drawer.opened &&
-            classes.sidebarContainerDesktopDrawerCollapsed,
-        )}
-      >
-        <Drawer
-          classes={{
-            paper: clsx(
-              classes.drawer,
-              classes.drawerDesktop,
-              drawer.opened && classes.drawerDesktopCollapsed,
-            ),
-          }}
-          variant="permanent"
-        >
-          <SidebarContent />
-        </Drawer>
+    <aside className={classes.sidebar}>
+      <div className={classes.sidebarHeader}>
+        <Link to="/" className={classes.sidebarTitleLink}>
+          <Logo size={30} className={classes.logo} />
+          <Typography
+            component="h2"
+            variant="h5"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
+            <span className={classes.name}>Material Admin</span>
+            <span className={classes.tagline}>ReactJS + MaterialUI</span>
+          </Typography>
+        </Link>        
       </div>
+      <SidebarNav />
+    </aside>
   );
 }
 
 const mapStateToProps = ({ drawer }: ApplicationState) => ({ drawer });
 
 const mapDispatchToProps = (dispatch: Dispatch) => 
-  bindActionCreators(DrawerActions, dispatch);
+  bindActionCreators({}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

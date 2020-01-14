@@ -1,6 +1,6 @@
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-import { Theme } from '../../config/theme';
+import { Theme } from 'src/config/theme';
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,6 +25,6 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     iconDiscuss: {
       color: '#ccc',
-    },
-  }),
+    }
+  })
 );

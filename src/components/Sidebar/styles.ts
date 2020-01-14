@@ -1,40 +1,54 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
-import { Theme } from '../../config/theme';
+import { Theme } from 'src/config/theme';
+
+import { StateProps } from './index';
 
 export const useStyles = makeStyles((theme: Theme) => ({
-  drawer: {},
-  drawerDesktop: {
-    width: '100%',
+  sidebar: {
     position: 'absolute',
-  },
-  drawerDesktopCollapsed: {
+    top: 0,
+    bottom: 0,
+    width: '100%',
+    height: '100%',
+    color: theme.sidebar.color,
+    background: theme.sidebar.background,
     overflowX: 'hidden',
+    overflowY: 'auto',
   },
-  sidebarContainer: {
-    position: 'relative',
-    [theme.breakpoints.up('md')]: {
-      width: theme.sidebar.width,
-      flexShrink: 0,
-    },
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  sidebarContainerDesktop: {
-    width: theme.sidebar.width,
-  },
-  sidebarContainerDesktopDrawerCollapsed: {
-    [theme.breakpoints.up('md')]: {
-      width: theme.sidebar.widthCollapsed,
-    },
-  },
-  toolbar: {
+  sidebarHeader: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
+    justifyContent: 'center',
+    whiteSpace: 'nowrap',
+    padding: '0 8px',
     ...theme.mixins.toolbar,
   },
+  sidebarTitleLink: {
+    textDecoration: 'none',
+    color: 'inherit',
+    display: 'flex'
+  },
+  logo: {
+    color: theme.palette.primary.main,
+  },
+  title: ({ drawer }: StateProps) => ({
+    position: 'relative',
+    overflow: 'visible',
+    marginLeft: '5px',
+    display: drawer.opened ? 'none' : 'block',
+  }),
+  name: {},
+  tagline: {
+    fontSize: 8,
+    fontWeight: 'bold',
+    position: 'absolute',
+    top: '100%',
+    marginTop: -5,
+    background: theme.palette.primary.main,
+    color: '#fff',
+    borderRadius: 2,
+    padding: '1px 3px',
+    right: 0,
+  }
 }));

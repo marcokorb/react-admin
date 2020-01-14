@@ -1,29 +1,25 @@
-import React from 'react'
+import React from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import IconDashboard from '@material-ui/icons/Dashboard';
+import IconProducts from '@material-ui/icons/LocalMall';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
-import IconDashboard from '@material-ui/icons/Dashboard';
-import IconProducts from '@material-ui/icons/LocalMall';
-
-
-import { ApplicationState } from '../../store';
-
-import { DrawerState } from '../../store/ducks/drawer/types';
-
-
-import { useStyles } from './styles';
+import { ApplicationState } from 'src/store';
+import { DrawerState } from 'src/store/ducks/drawer/types';
 
 import SidebarNavItems from '../SidebarNavItems';
 
-interface StateProps {
+import { useStyles } from './styles';
+
+type StateProps = {
   drawer: DrawerState;
 }
 
 const SidebarNav: React.FC<StateProps> = ({ drawer }: StateProps) => {
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   const itemsSales = [
     {
@@ -46,9 +42,9 @@ const SidebarNav: React.FC<StateProps> = ({ drawer }: StateProps) => {
         {
           name: 'Categories',
           link: '/sales/products/categories',
-        },
-      ],
-    },
+        }
+      ]
+    }
   ];
 
   // eslint-disable-next-line
@@ -65,7 +61,7 @@ const SidebarNav: React.FC<StateProps> = ({ drawer }: StateProps) => {
     {
       name: 'Categories',
       link: '/content/categories',
-    },
+    }
   ];
 
   return (
@@ -78,7 +74,6 @@ const SidebarNav: React.FC<StateProps> = ({ drawer }: StateProps) => {
         )}
         <SidebarNavItems items={itemsSales} />
       </List>
-
       <List className={classes.navList} disablePadding>
         {!drawer.opened && (
           <ListSubheader disableSticky={true} className={classes.navListHeader}>
@@ -87,14 +82,13 @@ const SidebarNav: React.FC<StateProps> = ({ drawer }: StateProps) => {
         )}
         <SidebarNavItems items={itemsContent} />
       </List>
-     
     </div>
-  )
+  );
 }
 
 const mapStateToProps = ({ drawer }: ApplicationState) => ({ drawer });
+
 const mapDispatchToProps = (dispatch: Dispatch) => 
   bindActionCreators({}, dispatch);
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(SidebarNav);

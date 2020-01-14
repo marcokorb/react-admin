@@ -1,4 +1,6 @@
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+
+import { Theme } from 'src/config/theme';
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,7 +38,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     navItemCollapsed: {
       whiteSpace: 'nowrap',
       flexWrap: 'nowrap',
-      // width: theme.sidebar.widthCollapsed,
+      width: theme.sidebar.widthCollapsed,
       '& $iconToggle': {
         position: 'absolute',
         bottom: -1,
@@ -49,7 +51,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     navItemCollapsedWrapper: {
-      // width: theme.sidebar.widthCollapsed,
+      width: theme.sidebar.widthCollapsed,
     },
     navItemIcon: {
       minWidth: 40,
@@ -58,6 +60,6 @@ export const useStyles = makeStyles((theme: Theme) =>
     iconSpacer: {
       fontSize: 13,
       marginLeft: 6,
-    },
-  }),
+    }
+  })
 );
