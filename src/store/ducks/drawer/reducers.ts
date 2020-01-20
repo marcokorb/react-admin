@@ -3,7 +3,7 @@ import { Reducer } from 'redux';
 import { DrawerState, DrawerTypes } from './types';
 
 const INITIAL_STATE: DrawerState = {
-  opened: true
+  open: true
 };
 
 const reducers: Reducer<DrawerState> = produce(
@@ -11,13 +11,13 @@ const reducers: Reducer<DrawerState> = produce(
     
     switch (action.type) {
         case DrawerTypes.OPEN_DRAWER:
-          draft.opened = true;
+          draft.open = true;
           break;
         case DrawerTypes.CLOSE_DRAWER:
-          draft.opened = false;
+          draft.open = false;
           break;
         case DrawerTypes.TOGGLE_DRAWER:
-          draft.opened = !draft.opened;
+          draft.open = !draft.open;
           break;
         default:
           break;

@@ -1,5 +1,4 @@
 import { Theme as MuiTheme, createMuiTheme } from '@material-ui/core/styles'
-import { blue } from '@material-ui/core/colors';
 
 export interface Theme extends MuiTheme {
   sidebar: {
@@ -74,10 +73,10 @@ const baseTheme = createMuiTheme({
   },
   palette: {
     secondary: {
-      main: '#8cd136', //indigo[600],
+      main: '#43a047', //indigo[600],
     },
     primary: {
-      main: blue[600], //'#619f30',
+      main: '#1b5e20', //'#619f30',
     },
   },
   typography: {

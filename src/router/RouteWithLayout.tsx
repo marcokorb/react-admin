@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route,} from 'react-router-dom';
-
+import { Route } from 'react-router-dom';
 
 const RouteWithLayout = ({ component: Component, layout: Layout, ...rest }: any) => (
   <Route

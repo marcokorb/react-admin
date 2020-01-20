@@ -1,24 +1,20 @@
 import React from 'react';
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 
-import Logo from 'src/common/Logo';
-import { ApplicationState } from 'src/store';
-import { DrawerState } from 'src/store/ducks/drawer/types';
+import Logo from '../../../common/Logo';
 
-import SidebarNav from '../SidebarNav';
+import SidebarNav from './SidebarNav';
 
 import { useStyles } from './styles';
 
 export type StateProps = {
-  drawer: DrawerState;
+  drawerOpened: boolean;
 }
 
-const Sidebar: React.FC<StateProps> = (props: StateProps) => {
+const Sidebar: React.FC<StateProps> = ({ drawerOpened }: StateProps) => {
 
-  const classes = useStyles(props);
+  const classes = useStyles({ drawerOpened });
 
   return (
     <aside className={classes.sidebar}>
@@ -37,14 +33,9 @@ const Sidebar: React.FC<StateProps> = (props: StateProps) => {
           </Typography>
         </Link>        
       </div>
-      <SidebarNav />
+      <SidebarNav drawerOpened={drawerOpened}/>
     </aside>
   );
 }
 
-const mapStateToProps = ({ drawer }: ApplicationState) => ({ drawer });
-
-const mapDispatchToProps = (dispatch: Dispatch) => 
-  bindActionCreators({}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default Sidebar;

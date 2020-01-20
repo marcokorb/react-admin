@@ -32,11 +32,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
   logo: {
     color: theme.palette.primary.main,
   },
-  title: ({ drawer }: StateProps) => ({
+  title: ({ drawerOpened }: StateProps) => ({
     position: 'relative',
     overflow: 'visible',
     marginLeft: '5px',
-    display: drawer.opened ? 'none' : 'block',
+    display: drawerOpened ? 'block' : 'none',
   }),
   name: {},
   tagline: {

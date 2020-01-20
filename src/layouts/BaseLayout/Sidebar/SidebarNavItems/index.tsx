@@ -5,19 +5,19 @@ import SidebarNavItem, { SidebarNavItemProps } from '../SidebarNavItem';
 export type SidebarNavItemsProps = {
   items: SidebarNavItemProps[];
   isNested?: boolean;
-  isCollapsed?: boolean;
+  drawerOpened?: boolean;
 }
 
 const SidebarNavItems: React.FC<SidebarNavItemsProps> = (props: SidebarNavItemsProps) => {
 
-  const { items = [], isCollapsed = false, isNested = false } = props;
+  const { items = [], drawerOpened, isNested = false } = props;
 
   return (
     <>
       {items.map((item, index) => (
         <SidebarNavItem
           {...item}
-          isCollapsed={isCollapsed}
+          drawerOpened={drawerOpened}
           isNested={isNested}
           key={index}
         />

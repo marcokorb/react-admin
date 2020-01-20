@@ -1,7 +1,7 @@
 import { all, put, takeEvery } from 'redux-saga/effects';
 
-import { DrawerTypes } from './types';
 import { drawerOpened, drawerClosed, drawerToggled } from './actions';
+import { DrawerTypes } from './types';
 
 function* opened(): Generator {
   yield put(drawerOpened());
@@ -24,7 +24,7 @@ function* toggle() {
 }
 
 function* watchToggle(): Generator {
-  yield takeEvery(DrawerTypes.TOGGLE_DRAWER, toggle)
+  yield takeEvery(DrawerTypes.TOGGLE_DRAWER, toggle);
 }
 
 export default function* drawerRootSaga() {

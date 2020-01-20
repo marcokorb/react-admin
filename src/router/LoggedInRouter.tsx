@@ -4,11 +4,13 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import Home from '../pages/Home';
 
 import BaseLayout from 'src/layouts/BaseLayout';
 
 import RouteWithLayout from './RouteWithLayout';
+
+import Dashboard from '../pages/Dashboard';
+import Products from '../pages/Products';
 
 const LoggedInRouter = () => {
 
@@ -24,10 +26,11 @@ const LoggedInRouter = () => {
 
   return (
     <Switch>
-      <Route exact path="/" render={() => <Redirect to="/sales/dashboard" />} />
-      <RouteWithLayout path={`/sales`} component={Home} layout={BaseLayout} />
+      <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
+      <RouteWithLayout path={`/dashboard`} component={Dashboard} layout={BaseLayout} />
+      <RouteWithLayout path={`/produtos`} component={Products} layout={BaseLayout} />
     </Switch>
-  )
+  );
 }
 
 export default LoggedInRouter;

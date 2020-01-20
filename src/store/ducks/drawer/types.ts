@@ -1,6 +1,3 @@
-/**
- * Action types
- */
 export enum DrawerTypes {
   OPEN_DRAWER = '@drawer/OPEN',
   DRAWER_OPENED = '@drawer/OPENED',
@@ -10,9 +7,6 @@ export enum DrawerTypes {
   DRAWER_TOGGLED = '@drawer/TOGGLED'
 }
 
-/**
- * State type
- */
 export interface DrawerState {
-  readonly opened: boolean
+  readonly open: boolean
 }
